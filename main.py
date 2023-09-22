@@ -24,6 +24,14 @@ def compare_objects_with_equality_operator(obj1: T, obj2: T) -> bool:
     return obj1 == obj2
 
 
+class SillyString(str):
+    # This method gets called when using == on the object
+    def __eq__(self, other: str) -> bool:
+        print(f"Comparing {self} to {other}")
+        # Return True if self and other have the same length
+        return len(self) == len(other)
+
+
 class Main:
     @staticmethod
     def main() -> None:
@@ -55,6 +63,13 @@ class Main:
 
         c = a.copy()
         print(c, id(c))
+
+        print("hello world" == "world hello")
+        print("hello world" == SillyString("world hello"))
+        print(SillyString("world hello").__eq__("hello world"))
+        print("hello world".__eq__(SillyString("hello world")))
+
+
 
 
 if __name__ == "__main__":
