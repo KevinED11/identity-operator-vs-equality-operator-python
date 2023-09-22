@@ -1,3 +1,7 @@
+"""
+1. identity operator compares two objects and determines if they are the same based in their memory address
+2. equality operator compares two objects and determines if they are the same based on their values
+"""
 from typing import TypeVar
 
 
@@ -12,7 +16,7 @@ def compare_objects_with_identity_operator(obj1: T, obj2: T) -> bool:
     return obj1 is obj2
 
 
-def compare_object_with_equality_operator(obj1: T, obj2: T) -> bool:
+def compare_objects_with_equality_operator(obj1: T, obj2: T) -> bool:
     """
     Compare two objects and determine if they are the
     same based on their values.
@@ -35,8 +39,22 @@ class Main:
 
         obj3 = {"a": 1, "b": 2}
         obj4 = {"a": 1, "b": 2}
-        result3 = compare_object_with_equality_operator(obj3, obj4)
+        result3 = compare_objects_with_equality_operator(obj3, obj4)
         print(result3)
+
+        obj5 = obj3
+        print(obj5 is obj3)
+
+        a = [1, 2, 3]
+        b = a
+        print(a is b)
+
+        a.append(4)
+        print(a, id(a))
+        print(b, id(b))
+
+        c = a.copy()
+        print(c, id(c))
 
 
 if __name__ == "__main__":
