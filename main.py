@@ -7,11 +7,12 @@ variables se refieren al mismo objeto en la memoria . Si tiene en cuenta esta di
 poder evitar comportamientos inesperados en su código.
 
 conclusión: casi nunca deberias usar el operador is en python salvo en un caso en que la mayoria
-programadores python usan is es para comprobar si algo es nulo o None.
+programadores python usan is y es considerado buena preactica por que compara directamente las direccion de memoria y por seguridad,
+para comprobar si algo es nulo o None.
 """
 from typing import TypeVar
 
-
+# variable de cualquier tipo
 T = TypeVar("T")
 
 
